@@ -1,0 +1,19 @@
+{
+  "name": "oauth2-mock-server-wrapper",
+  "version": "1.0.0",
+  "description": "Baufest OAUTH2 Mock Server",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "url": "https://gitlab.baufest.com/baufest-arquitecturas-de-referencia/oauth2-mock-server-wrapper",
+    "type": "git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "oauth2-mock-server": "^4.3.0"
+  }
+}

@@ -1,0 +1,18 @@
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
+build:
+  image: docker:latest
+  stage: build
+  tags:
+    - docker
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:    
+    - docker build -t $CI_REGISTRY/baufest-arquitecturas-de-referencia/oauth2-mock-server-wrapper/oauth-mock:latest .
+    - docker push $CI_REGISTRY/group/oauth2-mock-server-wrapper/oauth-mock:latest
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  only:
+    - master
